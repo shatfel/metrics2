@@ -1,6 +1,6 @@
 export {_C}
 
 const _C = {
-  host: "localhost",
-  port: 3001
+  host: "0.0.0.0",
+  port: 3002
 }
