@@ -12,7 +12,7 @@ Just clone repo:
 git clone https://github.com/shatfel/metrics2
 ```
 
-and run `yarn start`.
+and run `yarn install` and after `yarn start`.
 
 ## WARNING
 
