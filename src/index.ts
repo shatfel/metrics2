@@ -1,4 +1,7 @@
+'use strict'
+
 import {ApplicationConfig, MetricsApplication} from './application';
+import {_C} from './config';
 
 export * from './application';
 
@@ -9,7 +12,7 @@ export async function main(options: ApplicationConfig = {}) {
 
   const url = app.restServer.url;
   console.log(`Server is running at ${url}`);
-  console.log(`Try ${url}/ping`);
+  //console.log(`Try ${url}/ping`);
 
   return app;
 }
@@ -18,8 +21,8 @@ if (require.main === module) {
   // Run the application
   const config = {
     rest: {
-      port: +(process.env.PORT ?? 3000),
-      host: process.env.HOST,
+      port: +(process.env.PORT ?? _C.port),
+      host: process.env.HOST ?? _C.host,
       // The `gracePeriodForClose` provides a graceful close for http/https
       // servers with keep-alive clients. The default value is `Infinity`
       // (don't force-close). If you want to immediately destroy all sockets
