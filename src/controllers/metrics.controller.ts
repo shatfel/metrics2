@@ -23,7 +23,7 @@ export class MetricsController {
 
     os.cpus().forEach((_cpu: {model: any; speed: any}) => {
       _r += util.format(
-        "test_os_cpu{cpu='%s', model='%s', speed='%s'}\n",
+        "test_metrics_exporter_cpu{cpu='%s', model='%s', speed='%s'}\n",
         _cpuId, _cpu.model, _cpu.speed)
       _cpuId++
     })
@@ -38,18 +38,18 @@ export class MetricsController {
     // for prevent difference in values
     let _mem = {total: this.getMem().total, free: this.getMem().free}
 
-    return util.format("test_os_platform %s\n\
-test_os_hostname %s\n\
-test_os_cpus_total_count %d\n\
+    return util.format("test_metrics_exporter_platform %s\n\
+test_metrics_exporter_hostname %s\n\
+test_metrics_exporter_cpus_total_count %d\n\
 %s\
-test_os_total_mem_b %d\n\
-test_os_freemem_b %f\n\
-test_os_total_mem_Mb %d\n\
-test_os_freemem_Mb %f\n\
-test_os_loadavg_1 %f\n\
-test_os_loadavg_5 %f\n\
-test_os_loadavg_15 %f\n\
-test_os_uptime %d\n",
+test_metrics_exporter_total_mem_b %d\n\
+test_metrics_exporter_freemem_b %f\n\
+test_metrics_exporter_total_mem_Mb %d\n\
+test_metrics_exporter_freemem_Mb %f\n\
+test_metrics_exporter_loadavg_1 %f\n\
+test_metrics_exporter_loadavg_5 %f\n\
+test_metrics_exporter_loadavg_15 %f\n\
+test_metrics_exporter_uptime %d\n",
       os.platform(),
       os.hostname(),
       os.cpus().length,
